@@ -1,0 +1,116 @@
+body{
+    width: 98vw;
+    margin: auto;
+    padding: 0;
+    background-color: rgb(78, 48, 9);
+}
+
+.header{
+    display: flex;
+    border-bottom: solid 2px black;
+    height: 50px;
+    justify-content: space-between;
+    background-color: rgb(125, 82, 26);
+    color: aliceblue;
+}
+
+.header .bienvenue{
+    align-self: center;
+    margin-left: 20%;
+}
+
+.header .horloge{
+    height: 65px;
+    align-self: center;
+    padding-left: 5%;
+    border-left: solid 1px black;
+    margin-right: 5%;
+}
+
+.catalogue{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 98vw;
+    margin: auto;
+}
+
+.catalogue .panier{
+    display: inline-block;
+    width: 24%;
+    border: 2px solid black;
+    height: 84vh;
+    background-color: rgb(193, 140, 69);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.catalogue .panier .article{
+    border: black 1px solid;
+    height: 40vh;
+    overflow-y: scroll;
+    width: 99%;
+    margin: auto;
+    list-style: none;
+    background-color: rgb(125, 82, 26);
+    color: white;
+}
+
+.catalogue .panier .article::-webkit-scrollbar{
+    display: none;
+}
+
+.catalogue .panier .article li button{
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0px 0 3px;
+    background: none;
+    color: aliceblue;
+}
+
+.catalogue .listItem{
+    display: inline-block;
+    height: 84vh;
+    width: 74%;
+    border: 2px solid black;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    list-style: none;
+    background-color: rgb(125, 82, 26);
+}
+.catalogue .listItem::-webkit-scrollbar{
+    width: 1rem;
+    background-color: rgb(193, 140, 69);
+}
+.catalogue .listItem::-webkit-scrollbar-thumb{
+    background-color: antiquewhite;
+}
+
+.catalogue .listItem li .item{
+    width: 20vw;
+    height: 35vw;
+    margin-right: 5px;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.catalogue .listItem .item img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.Button{
+    display: block;
+    background: rgb(183, 114, 24);
+    color: white;
+    height: 3rem;
+    width: 50%;
+    margin: auto;
+}

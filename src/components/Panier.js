@@ -1,0 +1,79 @@
+import React, {Component} from 'react';
+import Catalogue from './Catalogue';
+
+class Panier extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            content: this.props.content,
+            article: this.props.article
+        }
+    }
+
+    addClick(itemName){
+        var elems = this.props.content;
+            if (elems.find(elem => elem.name === itemName))
+            {
+                elems.find(function(elem) {
+                    if(elem.name === itemName)
+                        return elem.nombre += 1;
+                } )
+            }
+
+        this.props.itemFunction(elems);
+    }
+
+    removeClick(itemName){
+        var elems = this.props.content;
+            elems.find(function(elem) {
+                if(elem.name === itemName)
+                    if (elem.nombre > 1){
+                        elem.nombre -= 1;
+                    }   
+                    else {
+                        elems.splice(elems.indexOf(elem), 1);
+                    }
+            } )
+        this.props.itemFunction(elems);
+
+    }
+
+    deleteClick(itemName){
+        var elems = this.props.content;
+        elems = elems.filter(elem => elem.name !== itemName)
+
+        this.props.itemFunction(elems);
+
+    }
+
+    render() {
+        return(
+            <div class="panier">
+
+                <div>
+                    <h2>Votre Panier :</h2>
+                    <div class="article">
+
+                        {
+                            this.props.content.map((elem) => <li> 
+                                <button onClick={() => this.deleteClick(elem.name)} type="button">X</button>
+                                - {elem.name} : {elem.price} $ x {elem.nombre}
+                                <button onClick={() => this.addClick(elem.name)} type="button">+</button>
+                                <button onClick={() => this.removeClick(elem.name)} type="button">-</button>
+                            </li>)
+                        }
+                            
+                    </div>
+                    <h4>Total : {this.props.article} articles</h4>
+                    <h4>Total price : {this.props.totalPrice} $</h4>
+                    <button class="Button" onClick={Catalogue.videurPanier} type="button">Vider le panier</button>
+                </div>
+
+            </div>
+        );
+    }
+
+}
+
+export default Panier;
